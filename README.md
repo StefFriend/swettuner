@@ -166,7 +166,7 @@ Contributions are welcome: open an issue or a pull request.
 
 ## License
 
-Released under the [MIT License](LICENSE). © 2026 Stefano Antonio Amico.
+Released under the [MIT License](LICENSE). © 2026 StefFriend.
 
 *Buzz Feiten Tuning System is a trademark of its respective owner. Peterson and the names of its
 sweeteners are trademarks of Peterson Electro-Musical Products. This project is not affiliated
