@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 108dp adaptive icon canvas; artwork kept inside the 66dp safe zone (21..87). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <!-- tuner scale ticks -->
+    <path android:strokeColor="#6B7280" android:strokeWidth="2" android:strokeLineCap="round"
+        android:pathData="M32,72 L32,78 M40,70 L40,78 M48,72 L48,78 M60,72 L60,78 M68,70 L68,78 M76,72 L76,78" />
+    <!-- centre needle -->
+    <path android:strokeColor="#34D399" android:strokeWidth="4" android:strokeLineCap="round"
+        android:pathData="M54,66 L54,82" />
+    <!-- stylised drop of honey (sweetening) -->
+    <path android:fillColor="#E8B04B"
+        android:pathData="M54,28 C54,28 42,42 42,49 A12,12 0 0 0 66,49 C66,42 54,28 54,28 Z" />
+</vector>
