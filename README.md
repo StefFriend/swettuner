@@ -11,6 +11,10 @@ Sweet Tuner listens through the phone's microphone and shows, in one glance, the
 and how far off you are, measured against a **sweetened** target rather than plain equal temperament.
 It supports standard, drop, open and modal tunings, and explains each one and how to tune it.
 
+<p align="center">
+  <img src="docs/screenshot.jpg" alt="Sweet Tuner: high E string in tune with the Acoustic Stretch sweetening" width="320">
+</p>
+
 ---
 
 ## Features
@@ -69,11 +73,13 @@ offsets and target frequencies for the current tuning.
 
 ## Download
 
-Every push to this repository builds a debug APK with GitHub Actions:
+Every push to this repository builds an APK with GitHub Actions:
 
 1. Open the **Actions** tab and select the latest successful **Build APK** run.
-2. Download the **SweetTuner-debug-apk** artifact and unzip it.
+2. Download the **SweetTuner-apk** artifact and unzip it.
 3. Install the APK on your phone (you will need to allow installs from unknown sources).
+
+Builds are signed with the project's release key, so newer versions install over older ones.
 
 ## Build from source
 
@@ -88,8 +94,21 @@ cd SweetTuner
 
 Or open the folder in Android Studio and press **Run**.
 
-`./gradlew assembleRelease` builds a minified APK signed with the debug key, which is fine for
-personal use. Configure your own signing key before publishing to a store.
+### Release signing
+
+`./gradlew assembleRelease` builds a minified APK. It is signed with your own key when these
+environment variables are set, and with the debug key otherwise:
+
+| Variable | Value |
+|---|---|
+| `KEYSTORE_PATH` | path to the `.jks` keystore |
+| `KEYSTORE_PASSWORD` | keystore password |
+| `KEY_ALIAS` | key alias |
+| `KEY_PASSWORD` | key password (optional, defaults to the keystore password) |
+
+The GitHub workflow reads the keystore from the repository secrets `KEYSTORE_BASE64`
+(the `.jks` file encoded in Base64), `KEYSTORE_PASSWORD` and `KEY_ALIAS`. Without these secrets
+it builds a debug APK instead. Never commit the keystore itself.
 
 Stack: Android Gradle Plugin 8.9.1, Kotlin 2.1.20, Gradle 8.14.3, compileSdk 35, minSdk 26.
 The app uses only the Android framework and the Kotlin standard library, with no third-party
@@ -147,7 +166,7 @@ Contributions are welcome: open an issue or a pull request.
 
 ## License
 
-Released under the [MIT License](LICENSE). © 2026 StefFriend.
+Released under the [MIT License](LICENSE). © 2026 Stefano Antonio Amico.
 
 *Buzz Feiten Tuning System is a trademark of its respective owner. Peterson and the names of its
 sweeteners are trademarks of Peterson Electro-Musical Products. This project is not affiliated
